@@ -1,44 +1,245 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
-  </head>
-  <body>
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-    
-    <script>
-      let a = Number(prompt("Enter the first number:"))
-      let op = prompt("Enter operation (+, - , *, /)")
-      let b = Number(prompt("Enter the second number:"))
-      let res
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
 
-      switch(op){
-        case '+':
-        res = a + b
-        break
-        case '-':
-        res = a - b 
-        break
-        case '*':
-        res = a * b
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Added a link to our external stylesheet-->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<!-- Jumbotron for Title -->
+<div class="jumbotron">
+    <h1 class="text-center">Calculator</h1>
+    <h3 class="text-center">Perform basic mathematic operations using the power of javascript!</h3>
+</div>
+
+<div class="container">
+
+    <div class="row">
+
+      <!-- Calculator Card -->
+      <div class="col-lg-4">
+        <div class="card">
+          <h3 class="card-header">Calculator</h3>
+
+          <div class="card-body">
+            <button id="button-1" class="btn btn-primary number" value="1"><span>1</span></button>
+            <button id="button-2" class="btn btn-primary number" value="2"><span>2</span></button>
+            <button id="button-3" class="btn btn-primary number" value="3"><span>3</span></button>
+            <button id="button-plus" class="btn btn-danger operator" value="plus"><span>+</span></button>
+            <br><br>
+            <button id="button-4" class="btn btn-primary number" value="4"><span>4</span></button>
+            <button id="button-5" class="btn btn-primary number" value="5"><span>5</span></button>
+            <button id="button-6" class="btn btn-primary number" value="6"><span>6</span></button>
+            <button id="button-minus" class="btn btn-danger operator" value="minus"><span>&minus;</span></button>
+            <br><br>
+            <button id="button-7" class="btn btn-primary number" value="7"><span>7</span></button>
+            <button id="button-8" class="btn btn-primary number" value="8"><span>8</span></button>
+            <button id="button-9" class="btn btn-primary number" value="9"><span>9</span></button>
+            <button id="button-multiply" class="btn btn-danger operator" value="times"><span>&times;</span></button>
+            <br><br>
+            <button id="button-0" class="btn btn-primary number" value="0"><span>0</span></button>
+            <button id="button-divide" class="btn btn-danger operator" value="divide"><span>&divide;</span></button>
+            <button id="button-power" class="btn btn-danger operator" value="power"><span>^</span></button>
+            <button id="button-equal" class="btn btn-success equal" value="equals"><span>=</span></button>
+            <br><br>
+            <button id="button-clear" class="btn btn-dark clear" value="clear"><span>clear</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result Card -->
+      <div class="col-lg-6">
+        <div class="card">
+          <h3 class="card-header">Result</h3>
+          <div class="card-body">
+            <h1 id="first-number"></h1>
+            <h1 id="operator"></h1>
+            <h1 id="second-number"></h1>
+            <hr>
+            <h1 id="result"></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+
+// Your javascript here...
+
+let first = "", second = "", op = "", res = ""
+
+document.getElementById("button-1").addEventListener("click", () => {
+  if (op){
+    second += "1"
+    document.getElementById("second-number").innerHTML = second
+  } else {
+    first += "1"
+    document.getElementById("first-number").innerHTML = first
+  }
+})
+document.getElementById("button-2").addEventListener("click", () => {
+  if (op){
+    second += "2"
+    document.getElementById("second-number").innerHTML = second
+  } else {
+    first += "2"
+    document.getElementById("first-number").innerHTML = first
+  }
+})
+document.getElementById("button-3").addEventListener("click", () => {
+  if (op) {
+    second += "3"
+    document.getElementById("second-number").innerHTML = second
+  } else {
+    first += "3"
+    document.getElementById("first-number").innerHTML = first
+  }
+})
+document.getElementById("button-4").addEventListener("click", () => {
+  if (op) {
+    second += "4"
+    document.getElementById("second-number").innerHTML = second
+  } else {
+    first += "4"
+    document.getElementById("first-number").innerHTML = first
+  }
+})
+document.getElementById("button-5").addEventListener("click", () => {
+  if (op) {
+    second += "5"
+    document.getElementById("second-number").innerHTML = second
+  } else {
+    first += "5"
+    document.getElementById("first-number").innerHTML = first
+  }
+})
+document.getElementById("button-6").addEventListener("click", () => {
+  if (op) {
+    second += "6"
+    document.getElementById("second-number").innerHTML = second
+  } else {
+    first += "6"
+    document.getElementById("first-number").innerHTML = first
+  }
+})
+document.getElementById("button-7").addEventListener("click", () => {
+  if (op) {
+    second += "7"
+    document.getElementById("second-number").innerHTML = second
+  } else {
+    first += "7"
+    document.getElementById("first-number").innerHTML = first
+  }
+})
+document.getElementById("button-8").addEventListener("click", () => {
+  if (op) {
+    second += "8"
+    document.getElementById("second-number").innerHTML = second
+  } else {
+    first += "8"
+    document.getElementById("first-number").innerHTML = first
+  }
+})
+document.getElementById("button-9").addEventListener("click", () => {
+  if (op) {
+    second += "9"
+    document.getElementById("second-number").innerHTML = second
+  } else {
+    first += "9"
+    document.getElementById("first-number").innerHTML = first
+  }
+})
+document.getElementById("button-0").addEventListener("click", () => {
+  if (op && second) {
+    second += "0"
+    document.getElementById("second-number").innerHTML = second
+  } else if (!op && first){
+    first += "0"
+    document.getElementById("first-number").innerHTML = first
+  }
+})
+// operations
+document.getElementById("button-plus").addEventListener("click", () => {
+  // Only add an operator if there's a first number
+  if (first && !op) {
+    op += "+"
+    document.getElementById("operator").innerHTML = op
+  }
+})
+document.getElementById("button-minus").addEventListener("click", () => {
+  // Only add an operator if there's a first number
+  if (first && !op) {
+    op += "-"
+    document.getElementById("operator").innerHTML = op
+  }
+})
+document.getElementById("button-multiply").addEventListener("click", () => {
+  // Only add an operator if there's a first number
+  if (first && !op) {
+    op += "*"
+    document.getElementById("operator").innerHTML = op
+  }
+})
+document.getElementById("button-divide").addEventListener("click", () => {
+  // Only add an operator if there's a first number
+  if (first && !op) {
+    op += "/"
+    document.getElementById("operator").innerHTML = op
+  }
+})
+document.getElementById("button-power").addEventListener("click", () => {
+  // Only add an operator if there's a first number
+  if (first && !op) {
+    op += "^"
+    document.getElementById("operator").innerHTML = op
+  }
+})
+
+document.getElementById("button-equal").addEventListener("click", () => {
+  if (first && op && second){
+    let a = Number(first), b = Number(second)
+    let result
+    switch (op) {
+      case '+':
+        result = a + b
+        
+        break;
+      case '-':
+        result = a - b
+        break;
+      case '*': 
+        result = a * b 
         break 
-        case '/':
-        res = a / b 
+      case '/':
+        result = a / b 
         break
-      }
+      case '^':
+        result= a ** b
+        break
+      default:
+        break;
+    }
+    document.getElementById("result").innerHTML = result
+    res = result
+  }
+})
 
-      alert(`res = ${res}`)
+document.getElementById("button-clear").addEventListener("click", () => {
+  first = "", second = "", op = "", res = ""
+  document.getElementById("result").innerHTML = document.getElementById("operator").innerHTML = ""
+  document.getElementById("first-number").innerHTML = document.getElementById("second-number").innerHTML = ""
+})
 
-    </script>
-  </body>
+
+
+</script>
+</body>
 </html>
